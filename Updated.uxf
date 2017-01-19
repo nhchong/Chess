@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>0</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>MainControl
+--
+- board: b*
+- inGame: bool
+- inSetup: bool
+- quit: bool
+--
++ validBoard(): bool
++ setup(): bool
++ play(): void
++ Controller();
++ ~Controller();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>296</x>
+      <y>32</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>AI
+--
+- board: Board&amp;
+--
++ makeMove(): pure virtual void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>256</y>
+      <w>248</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Board
+--
+- theBoard: vector &lt;vector &lt;Square *&gt; &gt;
+--
++ checkCheck(): Bool
++ move(int,int,int,int): void
++ moveTransform(int,int,int,int): void
++ setEnPassant(int, int): void
++ setMoved(int, int): void
++ Board();
++ ~Board();
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>160</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Level1
+--
+- board: Board&amp;
+--
++ makeMove(): pure virtual void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>256</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Level3
+--
+- board: Board&amp;
+--
++ makeMove(): pure virtual void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>280</x>
+      <y>160</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Level2
+--
+- board: Board&amp;
+--
++ makeMove(): pure virtual void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>256</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>Level4
+--
+- board: Board&amp;
+--
++ makeMove(): pure virtual void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>136</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>48</y>
+      <w>176</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>472</y>
+      <w>168</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Piece
+--
+- colour: string
+- name: char
+- x: int
+- y: int
+- board: Board&amp;
+--
+/+ validMove(int,int): bool/
++ getType(): char
++ getColour() : string
++ printSquare(): void
++ validDestination: bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>376</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>696</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>King
+--
+- moved: Bool
+--
++ King(string,char,int,int,Board&amp;)
++ validMove(int,int): bool
++ hasMoved(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>824</y>
+      <w>176</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Rook
+--
+- moved: Bool
+--
++ Rook(string,char,int,int,Board&amp;)
++ validMove(int,int): bool
++ checkObstructions(int, int)
++ hasMoved(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>696</y>
+      <w>184</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Queen
+--
+--
++ Queen(string,char,int,int,Board&amp;)
++ validMove(int,int): bool
++ checkObstructions(int, int)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>824</y>
+      <w>184</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Knight
+--
+--
++ Knight(string,char,int,int,Board&amp;)
++ validMove(int,int): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>920</x>
+      <y>696</y>
+      <w>192</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Bishop
+--
+--
++ Bishop(string,char,int,int,Board&amp;)
++ validMove(int,int): bool
++ checkObstructions(int, int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>968</x>
+      <y>824</y>
+      <w>184</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>Pawn
+--
+- moved: Bool
+- canBeEP: Bool
+--
++ Pawn(string,char,int,int,Board&amp;)
++ validMove(int,int): bool
++ checkEnPassant(int, int): bool
++ hasMoved(): bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
